@@ -78,7 +78,7 @@ while True:
 		#Recordar que hay que guardar los cambios
 		conn.commit()
 		print("Alumno agregado exitosamente!")
-	if opcion=='2':
+	elif opcion=='2':
 		#Solicitamos los datos
 		idCurso = int(input("Ingresa el id del curso: "))
 		nombreCurso = input("Ingresa el nombre del curso: ")
@@ -89,15 +89,15 @@ while True:
 		#Salvar cambios	
 		conn.commit()	
 		
-	if opcion=='3':
+	elif opcion=='3':
 		for row in conn.execute('SELECT * FROM curso ORDER BY idCurso ASC'):
 			print("id curso: ",row[0]," Nombre curso: ",row[1],"Cupo: ",row[2])
 
-	if opcion=='4':
+	elif opcion=='4':
 		for row in conn.execute('SELECT * FROM alumno ORDER BY folio DESC'):
 			print("Folio: ",row[0]," Nombre: ",row[1],row[2],row[3])
 	
-	if opcion=='5':
+	elif opcion=='5':
 		os.system("clear")
 		print("Cursos disponibles: \n")
 		for row in conn.execute('SELECT * FROM curso ORDER BY idCurso ASC'):
@@ -106,22 +106,32 @@ while True:
 		idCurso = int(input("Ingresa el id del curso a inscribir: "))
 		cursor.execute('INSERT INTO alumno_curso(folio,idCurso) VALUES("%d", "%d")'%(folio,idCurso))	
 		conn.commit()
-	if opcion=='6':
+	elif opcion=='6':
 		idCurso = int(input("Ingresa el id del curso a borrar: "))
 		for row in conn.execute('SELECT * FROM curso ORDER BY idCurso ASC'):
 			print("id curso: ",row[0]," Nombre curso: ",row[1],"Cupo: ",row[2])
 		cursor.execute("DELETE FROM curso WHERE idCurso=%d"%idCurso)
 		print("Curso eliminado correctamente!")
 		conn.commit()		
-	if opcion=='7':
+	elif opcion=='7':
+		for row in conn.execute('SELECT * FROM alumno ORDER BY folio DESC'):
+			print("Folio: ",row[0]," Nombre: ",row[1],row[2],row[3])	
+		folio = int (input("Ingresa el folio del que deseas actualizar: "))
+		opcioncambio = int(input("¿Qué campo quieres cambiar? : \n1.-Folio\n2.-Nombre\n3.-Apellido Paterno\n4.-Apellido Materno"))
+		if opcioncambio ==1:
+			nuevofolio = int(input("Ingresa el nuevo folio: "))
+			cursor.execute("""
+				UPDATE alumno SET folio = "%d" WHERE folio=%d
+				"""%(nuevofolio,folio))		
+			conn.commit()
+			print("Usuario actualizado.")
+	elif opcion=='8':
 		pass
-	if opcion=='8':
-		
-	if opcion=='9':
+	elif opcion=='9':
 		pass
-	if opcion=='10':
+	elif opcion=='10':
 		pass
-	if opcion=='11':
+	elif opcion=='11':
 		print("Gracias por utiizar la pyDB, hasta pronto!")
 		break
 	#else:

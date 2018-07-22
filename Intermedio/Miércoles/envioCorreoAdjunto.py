@@ -7,16 +7,35 @@ from email import encoders
  
 # Parámetros del script
 remitente = 'cursopython.proteco@gmail.com'
-destinatarios = ['jorgechavez.proteco@gmail.com']
-asunto = 'Mi pack'
-cuerpo = 'Hola, es un placer compartirte mi pack :P'
+#destinatarios = ['jorgechavez.proteco@gmail.com']
+destinatarios = ["jorgechavez.proteco@gmail.com",
+           "ae@ciencias.unam.mx",
+           "alejandracastrejong@gmail.com",
+           "mzl@ciencias.unam.mx",
+           "nicollegamao@gmail.com",
+           "jrggsnorf@gmail.com",
+           "mbarrerav99@gmail.com",
+           "joandyramirez1@gmail.com",
+           "jazz05d@gmail.com",
+           "sandravzch@gmail.com",
+           "oasis26v@gmail.com",
+           "rios.luisfrancisco@gmail.com",
+           "auro3194@gmail.com",
+           "mebla07@gmail.com",
+           "paulina.nunez.ilp@gmail.com",
+           "raul.990527@gmail.com"]
+
+asunto = 'Código de bases de datos'
+cuerpo = ''' Aquí se encuentran los códigos vistos el Miércoles y Jueves: https://github.com/PROTECO/pythonJunio18/tree/master/Intermedio/Jueves. 
+Recuerden terminar las opciones que faltan :) Bonita Tarde.
+Jorge Chávez!'''
 password = 'python.isCool'
 #ruta_adjunto = 'unam.jpg'
 #nombre_adjunto = 'unam.jpg'
-#ruta_adjunto = "cumbiondelmarcionito.mp3"
-#nombre_adjunto = "cumbiondelmarcionito.mp3"
-ruta_adjunto = "librorandomdeIA.pdf"
-nombre_adjunto = "librorandomdeIA.pdf"
+ruta_adjunto = "../Jueves/BasesDeDatos/alumnoCurso.py"
+nombre_adjunto = "../Jueves/BasesDeDatos/alumnoCurso.py"
+#ruta_adjunto = "libroRandomdeIA.pdf"
+#nombre_adjunto = "libroRandomdeIA.pdf"
 
 # Creamos el objeto mensaje
 mensaje = MIMEMultipart()
